@@ -1,0 +1,15 @@
+{
+    "name": "nalletje/imuis_api",
+    "license": "MIT",
+    "type": "library",
+    "description": "PHP library to access the imuis API",
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": { "nalletje\\imuis_api\\": "./" }
+    }
+}
