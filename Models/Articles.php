@@ -28,6 +28,9 @@ class Articles extends Connector {
     */
   protected $Select = 'NR'."\t".'OMSCHR';
 
+  /** @var string */
+  protected $OrderBy = "NR";
+
   /**
     * Constructor - Runs when loaded
     *
@@ -94,6 +97,24 @@ class Articles extends Connector {
     return $this->Select;
   }
 
+  /**
+    * Set Order By Statement
+    *
+    * @param string $str
+    */
+  public function setOrderBy($str){
+    $this->OrderBy = $str;
+  }
+
+  /**
+    * Get Order By Statement
+    *
+    * @return string $str
+    */
+  public function getOrderBy(){
+    return $this->OrderBy;
+  }
+
   public function getArticles(){
     $statements = [
       'Table1'  =>  [
@@ -102,7 +123,7 @@ class Articles extends Connector {
         'WHEREFIELDS'   => "NR",
         'WHEREOPERATORS'=> ">",
         'WHEREVALUES'   => "0",
-        'ORDERBY'       => "NR",
+        'ORDERBY'       => $this->getOrderBy(),
         'MAXRESULT'     => $this->getMaxResults(),
         'PAGESIZE'      => "10000",
         'SELECTPAGE'    => $this->getSelectPage()

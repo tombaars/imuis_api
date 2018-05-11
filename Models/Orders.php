@@ -28,6 +28,9 @@ class Orders extends Connector {
     */
   protected $Select = '*';
 
+  /** @var string */
+  protected $OrderBy = "HROW";
+
   /**
     * Constructor - Runs when loaded
     *
@@ -94,15 +97,33 @@ class Orders extends Connector {
     return $this->Select;
   }
 
+  /**
+    * Set Order By Statement
+    *
+    * @param string $str
+    */
+  public function setOrderBy($str){
+    $this->OrderBy = $str;
+  }
+
+  /**
+    * Get Order By Statement
+    *
+    * @return string $str
+    */
+  public function getOrderBy(){
+    return $this->OrderBy;
+  }
+
   public function getOrderSorts(){
     $statements = [
       'Table1'  =>  [
         'TABLE'         => "ORDSRT",
         'SELECTFIELDS'  => $this->getSelect(),
-        'WHEREFIELDS'   => "NR",
+        'WHEREFIELDS'   => "HROW",
         'WHEREOPERATORS'=> ">",
         'WHEREVALUES'   => "0",
-        'ORDERBY'       => "NR",
+        'ORDERBY'       => $this->getOrderBy(),
         'MAXRESULT'     => $this->getMaxResults(),
         'PAGESIZE'      => "10000",
         'SELECTPAGE'    => $this->getSelectPage()
