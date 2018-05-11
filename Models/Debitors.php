@@ -150,5 +150,26 @@ class Debitors extends Connector {
     return $this->call('GETSTAMTABELRECORDS', 'SELECTIE', $statements);
   }
 
+  public function getByDebitorNR($NR){
+    if(!is_numeric($NR)){
+      throw new FailedLoginException('Given value should be a integer... Debitor numbers are integers.');
+    }
+    $statements = [
+      'Table1'  =>  [
+        'TABLE'         => "DEB",
+        'SELECTFIELDS'  => $this->getSelect(),
+        'WHEREFIELDS'   => 'NR',
+        'WHEREOPERATORS'=> '=',
+        'WHEREVALUES'   => $NR,
+        'ORDERBY'       => "NR",
+        'MAXRESULT'     => $this->getMaxResults(),
+        'PAGESIZE'      => "10000",
+        'SELECTPAGE'    => $this->getSelectPage()
+      ]
+    ];
+    $statements = $this->arrayToXML($statements);
+    return $this->call('GETSTAMTABELRECORDS', 'SELECTIE', $statements);
+  }
+
 
 }
