@@ -82,9 +82,7 @@ class Debitors extends Connector {
     * @param string $str
     */
   public function setSelect($str){
-    if(is_numeric($str)){
-      $this->Select = $str;
-    }
+    $this->Select = $str;
   }
 
   /**
