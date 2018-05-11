@@ -6,7 +6,7 @@ use nalletje\imuis_api\Response\Response;
  * Imuis Connector -
  *
  * Based on Example code from http://cswdoc.imuisonline.com/?page_id=173
- * Based on https://github.com/Opifer/Imuis/blob/master/Criteria/Criteria.php - Thanks to Rick van Laarhoven <r.vanlaarhoven@opifer.nl>
+ * Based on https://github.com/Opifer/Imuis/ - Credits to Rick van Laarhoven <r.vanlaarhoven@opifer.nl>
  * @author Quirinus de Munnik <quirinus@q-online.eu>
  */
 class Connector
