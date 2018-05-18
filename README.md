@@ -7,10 +7,12 @@ This project is dedicated to connect to the iMuis cloudswitch API.
 More info about iMuis           ::  https://www.muis.nl
 Documentation from cloudswitch  ::  http://cswdoc.imuisonline.com
 
+At this moment we only support GetStamTabelRecords!
+
 ---------------------------------------------------------------
 
 # Current version
-At this moment, you can use this API to do get data from your iMuis database.
+At this moment, you can use this API to get data from your iMuis database.
 We have some pre-defined settings for Debitors, Articles (products) and Order Sorts. More will follow in the future.
 
 # Usage
