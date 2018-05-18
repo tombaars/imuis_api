@@ -1,7 +1,7 @@
 <?php
 namespace nalletje\imuis_api;
 use nalletje\imuis_api\Exception\FailedLoginException;
-use nalletje\imuis_api\Response\Response;
+use nalletje\imuis_api\Handlers\Response;
 /**
  * Imuis Connector -
  *

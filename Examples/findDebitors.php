@@ -10,12 +10,16 @@ $search_term = "";
 
 ## Create Session
 $conn = new Debitors($_partnerkey, $_environmentkey);
+## Set Pre-Defined Settings
+$conn->setFindByName($search_term);
+## -- OR --
+$conn->setFindByZipcode($search_term);
 ## Optional
 $conn->setSelect('NR'."\t".'ZKSL'."\t".'NAAM'."\t".'POSTCD'."\t".'PLAATS'); // Select Statement
 $conn->setMaxResults('10'); // The max results it will return
 $conn->setSelectPage('1');  // in case of more results then 10
 ## Get all Data
-$data = $conn->findByName($search_term);
+$data = $conn->getResults();
 // OR if your prefer zipcode
 // $data = $conn->findByZipcode($search_term);
 

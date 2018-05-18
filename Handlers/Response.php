@@ -1,5 +1,5 @@
 <?php
-namespace nalletje\imuis_api\Response;
+namespace nalletje\imuis_api\Handlers;
 /**
  * Imuis XML Response
  *

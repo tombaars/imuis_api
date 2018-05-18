@@ -10,12 +10,14 @@ $debitor_nr = "";
 
 ## Create Session
 $conn = new Orders($_partnerkey, $_environmentkey);
+## Init Pre-Defined settings
+$conn->setOrderSorts();
 ## Optional
 $conn->setSelect('*'); // Select Statement
 $conn->setMaxResults('10'); // The max results it will return
 $conn->setSelectPage('1');  // in case of more results then 10
 ## Get all Data
-$data = $conn->getOrderSorts();
+$data = $conn->getResults();
 
 echo "<pre>";
 var_dump($data);

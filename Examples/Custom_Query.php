@@ -1,18 +1,14 @@
 <?PHP
 require 'vendor/autoload.php';
-
-use nalletje\imuis_api\Models\Articles;
+use nalletje\imuis_api\Handlers\Builder;
 
 ## Set Config
 $_partnerkey = "";
 $_environmentkey = "";
-$debitor_nr = "";
 
 ## Create Session
-$conn = new Articles($_partnerkey, $_environmentkey);
+$conn = new Builder($_partnerkey, $_environmentkey);
 ## Init Pre-Defined settings
-$conn->setAll();
-## Optional
 $conn->setTable("ART");
 $conn->setSelect('NR'."\t".'OMSCHR');
 $conn->setWhereFields("BLOK");
