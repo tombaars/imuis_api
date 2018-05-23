@@ -1,7 +1,7 @@
 <?PHP
 require 'vendor/autoload.php';
 
-use nalletje\imuis_api\Models\Orders;
+use nalletje\imuis_api\Models\OrderSorts;
 
 ## Set Config
 $_partnerkey = "";
@@ -9,7 +9,7 @@ $_environmentkey = "";
 $debitor_nr = "";
 
 ## Create Session
-$conn = new Orders($_partnerkey, $_environmentkey);
+$conn = new OrderSorts($_partnerkey, $_environmentkey);
 ## Init Pre-Defined settings
 $conn->setOrderSorts();
 ## Optional

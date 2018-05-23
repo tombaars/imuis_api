@@ -6,7 +6,7 @@ use nalletje\imuis_api\Handlers\Builder;
  *
  * @author Quirinus de Munnik <quirinus@q-online.eu>
  */
-class Orders extends Builder {
+class OrderSorts extends Builder {
   /** @var string */
   protected $partnerKey;
 

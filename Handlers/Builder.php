@@ -266,10 +266,10 @@ class Builder extends Connector
     *
     * @return array
     */
-  public function getResults(){
+  public function getResults($action = 'GETSTAMTABELRECORDS', $definition = 'SELECTIE'){
     // Set to Array
     $statements = $this->arrayToXML($this->getQueryArray());
     // execute call and return data
-    return $this->call('GETSTAMTABELRECORDS', 'SELECTIE', $statements);
+    return $this->call($action, $definition, $statements);
   }
 }
