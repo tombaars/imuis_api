@@ -120,9 +120,22 @@ class Connector
      private function subarrayToXML($xml, $array){
        foreach ($array as $key => $value) {
             if (is_array($value)) {
-                $sub = $xml->addChild($key);
-                $this->subarrayToXML($sub, $value);
+                if(@$value['_remove_key']){
+                  unset($value['_remove_key']);
+                  $sub = $xml->addChild($value['_use_key']);
+                  $this->subarrayToXML($sub, $value);
+                } else {
+                  if(@$value[0]['_remove_key']){
+                    $this->subarrayToXML($xml, $value);
+                  } else {
+                    $sub = $xml->addChild($key);
+                    $this->subarrayToXML($sub, $value);
+                  }
+                }
             } else {
+                if($key === "_use_key"){
+                  continue;
+                }
                 $xml->addChild($key, $value);
             }
         }
