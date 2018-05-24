@@ -20,6 +20,7 @@ $conn->addOrderArticles('ARTNR', 'QUANTITY');
 $conn->addOrderArticles('ARTNR2', 'QUANTITY');
 // Create the Order :).
 $conn->createOrder();
-
+// Reset the order articles if needed and overwrite the ORDKOP settings
+$conn->resetOrderArticles();
 
 ?>

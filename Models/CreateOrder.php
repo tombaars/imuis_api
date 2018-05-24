@@ -216,10 +216,6 @@ class CreateOrder extends Connector {
   * @return array
   */
   public function createOrder($action = 'CREATEVERKOOPORDER', $definition = 'VERKOOPORDER'){
-    /*echo "<pre>";
-    var_dump($this->arrayToXML($this->getQueryArray()));
-    echo "</pre>";
-    exit;*/
     // Set to Array
     $statements = $this->arrayToXML($this->getQueryArray());
     // execute call and return data
