@@ -43,6 +43,13 @@ class CreateOrder extends Connector {
   protected $CONFIRMATION = "N";
 
 /**
+  * @var string :: J/N (NEGATIVE QUANTITY)
+  */
+  protected $NEGAANT = "N";
+
+
+
+/**
   * @var integer :: ORDRG
   */
   protected $ORDERARTICLES = [];
@@ -154,6 +161,28 @@ class CreateOrder extends Connector {
   }
 
 /**
+  * Set NEGAANT
+  *
+  * @param boolean $str
+  */
+  public function setNegaant($str){
+    if(strtolower($str) === true || strtolower($str) === "J"){
+      $this->NEGAANT = "J";
+    } else {
+      $this->NEGAANT = "N";
+    }
+  }
+
+/**
+  * Get NEGAANT
+  *
+  * @return boolean
+  */
+  public function getNegaant(){
+    return $this->NEGAANT;
+  }
+
+/**
   * reset Order Articles (cleanup)
   */
   public function resetOrderArticles(){
@@ -202,7 +231,8 @@ class CreateOrder extends Connector {
         'DAT' => $this->getDateTime(),
         'ORDSRT' => $this->getOrderSort(),
         'KENM' => $this->getReference(),
-        'GEBRORDBEV' => $this->getConfirmation()
+        'GEBRORDBEV' => $this->getConfirmation(),
+        'NEGAANT' => $this->getNegaant()
       ],
       'ORDRG' => $this->getOrderArticles()
     ];
