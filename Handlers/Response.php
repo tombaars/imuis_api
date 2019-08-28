@@ -1,5 +1,7 @@
 <?php
+
 namespace nalletje\imuis_api\Handlers;
+
 /**
  * Imuis XML Response
  *
@@ -8,16 +10,18 @@ namespace nalletje\imuis_api\Handlers;
 class Response
 {
     protected $_response;
+
     /**
      * Constructor
      *
      * Parse the XML String to XML
      * @param \Object $response
      */
-    public function __construct(Object $response)
+    public function __construct($response)
     {
         $this->_response = $this->parseResponseToXML($response);
     }
+
     /**
      * Check if the response has errors
      *
@@ -30,6 +34,7 @@ class Response
         }
         return false;
     }
+
     /**
      * Get the errors
      *
@@ -41,8 +46,9 @@ class Response
             $message = (string) $this->_response->ERROR->MESSAGE;
             return $message;
         }
-        return "";
+        return '';
     }
+
     /**
      * Get the data as an array
      *
@@ -52,6 +58,7 @@ class Response
     {
         return (object) $this->_response;
     }
+
     /**
      * Parse GuzzleHTTP response data to XML
      *
@@ -59,7 +66,6 @@ class Response
      */
     protected function parseResponseToXML($response)
     {
-       return simplexml_load_string($response->getBody()->getContents());
+        return simplexml_load_string((string)$response->getBody()->getContents());
     }
-
 }
